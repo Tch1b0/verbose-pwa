@@ -21,4 +21,6 @@ watch(input, () => {
     // @ts-ignore
     emit("inputUpdated", input.value);
 });
+
+input.value = "";
 </script>
