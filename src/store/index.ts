@@ -1,12 +1,23 @@
 import { createStore } from "vuex";
+import { Storage } from "./storage";
+
+function loadFavourites(): string[] {
+    const item = Storage.get("favourites");
+
+    if (item !== null) {
+        return JSON.parse(item);
+    } else {
+        return [];
+    }
+}
 
 interface StateType {
     favourites: string[];
 }
 
-export default createStore<StateType>({
+const store = createStore<StateType>({
     state: {
-        favourites: [],
+        favourites: loadFavourites(),
     },
     getters: {},
     mutations: {
@@ -29,3 +40,11 @@ export default createStore<StateType>({
     },
     modules: {},
 });
+
+store.subscribe((m, s) => {
+    if (!["appendFavourite", "removeFavourite"].includes(m.type)) return;
+
+    Storage.set("favourites", JSON.stringify(s.favourites));
+});
+
+export default store;
