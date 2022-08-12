@@ -1,5 +1,19 @@
 <template>
-    <h1 class="text-3xl mt-5 mb-10">Verbose</h1>
+    <a href="https://verbose.raphaelpour.de">
+        <img
+            src="https://verbose.raphaelpour.de/logo.png"
+            alt="Verbose Logo"
+            class="mt-5 mb-3 rounded-md outline-double outline-4 outline-black" />
+    </a>
+    <p class="text-gray-400 mb-6">
+        A PWA for
+        <a
+            href="https://verbose.raphaelpour.de"
+            class="text-blue-400 hover:underline"
+            >Verbose</a
+        >
+    </p>
+
     <search-bar class="pb-3" @inputUpdated="filterVocs"></search-bar>
     <table>
         <tr>
@@ -67,6 +81,6 @@ tr {
 }
 th,
 td {
-    @apply border-b-2 border-black pt-2 pb-2 pl-2 pr-10;
+    @apply border-b-2 border-black pt-2 pb-2 pl-2 md:pr-3 lg:pr-10;
 }
 </style>

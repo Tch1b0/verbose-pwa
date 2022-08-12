@@ -3,7 +3,8 @@
         <button>🔍</button>
         <input
             type="text"
-            class="pl-1 pr-1 border-2 border-black"
+            placeholder="search..."
+            class="pl-1 pr-1 border-2 border-black rounded-sm"
             v-model="input" />
     </div>
 </template>
